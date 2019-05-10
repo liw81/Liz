@@ -1,0 +1,14 @@
+fname = input("Enter the file name: ")
+fhand = open(fname)
+wlst = list()
+for line in fhand:
+    words = line.rstrip()
+    word = words.split()
+    for element in word:
+        if element in wlst:
+            continue 
+        else:
+            wlst.append(element)
+            
+            
+print(sorted(wlst))
