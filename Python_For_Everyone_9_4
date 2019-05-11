@@ -1,0 +1,25 @@
+fname = input("Enter a file name:")
+
+if len(fname) < 1:
+    print("mbox-short.txt")
+
+fhandle = open(fname)
+
+counts = dict()
+email = list()
+
+for line in fhandle:
+    if line.startswith('From '):
+        words = line.split()
+        email = words[1]
+        counts[email] = counts.get(email, 0) + 1
+
+bigemail = None
+bigvalue = None
+for email, value in counts.items():
+    value = counts[email]
+    if bigvalue == None or value > bigvalue:
+        bigemail = email
+        bigvalue = value
+
+print(bigemail, bigvalue)
